@@ -13,28 +13,26 @@ FUNCTION GetQueryStringParameter(Key: STRING) : STRING;
 VAR
   Query: STRING;
   QueryLength, KeyLength: INTEGER;
-  Position: INTEGER;
+  PosStart, PosEnd: INTEGER;
 
 BEGIN {GetQueryStringParameter}
   Query := GetEnv('QUERY_STRING');
   QueryLength := LENGTH(Query);
   KeyLength := LENGTH(key);
-  Position := Find(Key, Query);
-
   GetQueryStringParameter := '';
-  IF(Position > QueryLength) OR
-    (KeyLength < 1)
-  THEN Exit;
 
-  Position := Position + KeyLength + 1;
-  WHILE
-    (Position <= QueryLength) AND
-    (Query[Position] <> '&')
-  DO
-    BEGIN
-      GetQueryStringParameter := GetQueryStringParameter + Query[Position];
-      Position := Position + 1
-    END
+  PosStart := Pos(Key, Query);
+  IF(PosStart < 1) OR (KeyLength < 1)
+  THEN EXIT;
+
+  PosStart := PosStart + KeyLength + 1;
+  PosEnd := PosStart;
+  WHILE (PosEnd <= QueryLength) AND
+        (Query[PosEnd] <> '&')
+  DO PosEnd := PosEnd + 1;
+  PosEnd := PosEnd - PosStart;
+
+  GetQueryStringParameter := Copy(Query, PosStart, PosEnd);
 END; {GetQueryStringParameter}
 
 PROCEDURE Test_GetQueryStringParameter;
