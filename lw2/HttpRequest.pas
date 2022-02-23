@@ -1,4 +1,4 @@
-UNIT HttpResponse;
+UNIT HttpRequest;
 INTERFACE
 
 {Returns a key's value from the request's QUERY_STRING}

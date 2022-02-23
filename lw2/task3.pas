@@ -1,5 +1,5 @@
 PROGRAM lab23(INPUT, OUTPUT);
-USES HttpResponse;
+USES HttpRequest;
 VAR Name: STRING;
 BEGIN {lab23}
   WRITELN('Content-Type: text/plain');

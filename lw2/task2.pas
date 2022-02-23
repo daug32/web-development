@@ -1,7 +1,7 @@
 PROGRAM lab22(INPUT, OUTPUT);
-USES HttpResponse;
+USES HttpRequest;
 VAR Lanterns: STRING;
-BEGIN
+BEGIN {lab22}
   WRITELN('Content-Type: text/plain');
   WRITELN;
   Lanterns := GetQueryStringParameter('lanterns');
