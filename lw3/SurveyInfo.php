@@ -6,8 +6,6 @@ class SurveyInfo extends Survey
     /**
      * Returns formated data about user
      * 
-     * @var string|null $email
-     * 
      * @return string
      */
     public static function GetAll()
@@ -32,7 +30,6 @@ class SurveyInfo extends Survey
      * Returns property's value
      * 
      * @var string $key
-     * @var string|null $email
      * 
      * @return string
      */
