@@ -1,21 +1,28 @@
 <?php
 
-class SurveyInfo
+require_once "Survey.php";
+class SurveyInfo extends Survey
 {
     /**
      * Returns formated data about user
      * 
-     * @var string $email
+     * @var string|null $email
      * 
      * @return string
      */
-    public static function GetAll($email)
+    public static function GetAll()
     {
-        $path = "data/$email.txt";
+        self::GetData();
+        
+        if(strlen(self::$fillable["email"]) < 1)
+            return "Aborted. No user to search info about";
+
+        $path = self::GetPath();
         if(!file_exists($path))
         {
-            echo "User with this email doesn't exist: $email";
-            return;
+            return 
+                "User with this email doesn't exist: ".
+                self::$fillable["email"]."\n";
         }
         $data = implode("", file($path));
         return $data;
@@ -24,29 +31,23 @@ class SurveyInfo
     /**
      * Returns property's value
      * 
-     * @var string $email
-     * @var string $prop
+     * @var string $key
+     * @var string|null $email
      * 
      * @return string
      */
-    public static function GetProp($email, $prop)
+    public static function GetValue($key)
     {
-        $data = self::GetAll($email);
-        switch($prop)
+        if(!array_key_exists($key, self::$fillable))
+            return "Error. Unknown property.\n";
+        $data = explode("\n", self::GetAll());
+        foreach($data as $row)
         {
-            case "first_name":
-                $str = explode(": ", $data[0])[1];
-                return $str;
-            case "last_name":
-                $str = explode(": ", $data[1])[1];
-                return $str;
-            case "email":
-                $str = explode(": ", $data[2])[1];
-                return $str;
-            case "age":
-                $str = explode(": ", $data[3])[1];
-                return $str;
+            if(!str_contains($row, self::$prefixes[$key]))
+                continue;
+            
+            return str_replace(self::$prefixes[$key].": ", "", $row);
         }
-        return "Unknown property name.\n";
+        return "";
     }
 }

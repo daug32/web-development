@@ -1,53 +1,58 @@
 <?php
 
-class SurveySaver
-{
-    protected static function GetData()
-    {
-        $data = array();
-        $data['age'] = $_GET['age'] ?: "";
-        $data['email'] = $_GET['email'];
-        $data['last_name'] = $_GET['last_name'] ?: "";
-        $data['first_name'] = $_GET['first_name'] ?: "";
-        return $data;
-    }
-    protected static function UpdateRecord($path, $data)
-    {
-        $lines = file($path);
-        if(strlen($data["age"]) > 1)
-            $lines[3] = "Age: ".$data["age"]."\n";
-        if(strlen($data["last_name"]) > 1)
-            $lines[1] = "Last name: ".$data["last_name"]."\n";
-        if(strlen($data["first_name"]) > 1)
-           $lines[0] = "First name: ".$data["first_name"]."\n";
-
-        $lines = implode("", $lines);
-        $file = fopen($path, 'w');
-        fwrite($file, $lines);
-        fclose($file);
-    }
-    protected static function NewRecord($path, $data)
-    {
-        $file = fopen($path, 'w');
-        fwrite($file,
-            "First name: ".$data["first_name"]."\n".
-            "Last name: ".$data["last_name"]."\n".
-            "Email: ".$data["email"]."\n".
-            "Age: ".$data["age"]."\n"
-        );
-        fclose($file);
-    }
+require_once "Survey.php";
+class SurveySaver extends Survey
+{    
+    /**
+     * Parses data from the URL and saves data 
+     * 
+     * @return string
+     */
     public static function Exec()
     {
-        $data = self::GetData();
-        if(!isset($data['email'])) 
-        {
-            echo 'Error. The mandatory "email" property is empty';
-            return;
-        }
+        self::GetData();
+        if(strlen(self::$fillable['email']) < 1) 
+            return "Aborted. The mandatory property \"email\" is empty.\n";
 
-        $path = 'data/'.$data['email'].'.txt';
-        if(file_exists($path)) self::UpdateRecord($path, $data);
-        else self::NewRecord($path, $data);
+        $path = self::GetPath();
+        return self::Record($path);
+    }
+
+    /**
+     * Creates new or updates existed record for the user
+     * 
+     * @var string $path
+     * 
+     * @return string
+     */
+    protected static function Record($path) //record - запись
+    {
+        $data = array();
+        $lines = array();
+        if(file_exists($path))
+            $lines = file($path);
+            
+        $file = fopen($path, 'w');
+        if(!$file) return "Error. File can't be opened.\n";
+
+        $i = -1;
+        foreach(array_keys(self::$fillable) as $key)
+        {
+            $i++;
+
+            $oldData = explode(": ", $lines[$i])[0];
+            $recievedDataIsEmpty = strlen(self::$fillable[$key]) < 1;
+            $recordExists = $oldData === self::$prefixes[$key];
+
+            if($recievedDataIsEmpty && $recordExists)
+                $data[$i] = $lines[$i];
+            else 
+                $data[$i] = 
+                    self::$prefixes[$key].": ".
+                    self::$fillable[$key]."\n";
+        }
+        fwrite($file, implode("", $data));
+        fclose($file);
+        return "Data processed.\n";
     }
 }
