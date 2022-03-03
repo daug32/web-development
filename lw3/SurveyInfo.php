@@ -37,6 +37,7 @@ class SurveyInfo extends Survey
     {
         if(!array_key_exists($key, self::$fillable))
             return "Error. Unknown property.\n";
+            
         $data = explode("\n", self::GetAll());
         foreach($data as $row)
         {

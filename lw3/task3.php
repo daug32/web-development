@@ -1,6 +1,7 @@
 <?php
 
 header('Content-type: text/plain');
+error_reporting(0);
 
 /**
  * Returns security level of the string
@@ -21,9 +22,19 @@ function GetSecurityLevel($str)
     $numbers = 0;
     for($i = 0; $i < $length; $i++)
     {
-             if(ctype_lower($str[$i])) $lowerCount++;
+        if(ctype_lower($str[$i])) $lowerCount++;
         else if(ctype_upper($str[$i])) $upperCount++;
         else if(is_numeric($str[$i])) $numbers++;
+    }
+    $letters = $upperCount + $lowerCount;
+
+    $result += $numbers * 4;
+
+    //Password can contain only numbers and letters
+    if($numbers + $letters !== $length)
+    {
+        echo "This's not a password";
+        return;
     }
 
     if($lowerCount > 0)
@@ -32,15 +43,14 @@ function GetSecurityLevel($str)
     if($upperCount > 0)
         $result += 4 * ($length - $upperCount);
     
-    $letters = $upperCount + $lowerCount;
     if($numbers == 0) 
         $result -= $letters;
     else if($letters == 0)
         $result -= $numbers;
     
-    for($i = 0; $i < strlen($str); $i++)
+    for($i = 0; $i < $length; $i++)
     {
-        for($j = $i; $j < strlen($str); $j++)
+        for($j = $i; $j < $length; $j++)
             if($str[$i] == $str[$j]) $result--;
         $str = str_replace($str[$i], '', $str);
     }

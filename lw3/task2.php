@@ -1,6 +1,7 @@
 <?php
 
 header('Content-type: text/plain');
+error_reporting(0);
 
 /**
  * Check whether this id is current or not

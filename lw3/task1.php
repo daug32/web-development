@@ -1,6 +1,7 @@
 <?php 
 
 header('Content-type: text/plain'); 
+error_reporting(0);
 
 /**
  * Removes spaces around text as well as double spaces within
