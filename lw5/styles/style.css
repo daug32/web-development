@@ -134,9 +134,10 @@ header {
     margin: 200px 0 80px;
 }
 .content__abilities {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 1fr;
+    column-gap: auto;
     width: 80%;
     margin: 0 auto;
 }
@@ -145,10 +146,15 @@ header {
     border-radius: 8px;
     padding: 20px;
     margin: 5px;
-    width: 30%;
 }
 .content__abilities_item_text {
     color: white;
+}
+@media screen and (max-width: 800px)
+{
+    .content__abilities {
+        grid-template-columns: 1fr;
+    }
 }
 
 /*==================================================
