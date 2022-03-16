@@ -1,0 +1,166 @@
+@font-face {
+    font-family: headerFont;
+    src: url("../fonts/Montserrat-Light.ttf");
+}
+@font-face {
+    font-family: mainFont;
+    src: url("../fonts/RobotoCondensed-Light.ttf");
+}
+
+* {
+    color: black;
+    text-decoration: none;
+    font-family: mainFont; 
+    line-height: 1;
+}
+h1, h2, h3, a, button {
+    font-family: headerFont;
+}
+body {
+    margin: 0;
+}
+button {
+    border: 0;
+    border-radius: 4px;
+    padding: 15px;
+}
+p {
+    max-width: 500px;
+    font-size:larger;
+}
+.text_pink {
+    color: rgb(238, 88, 182);
+}
+
+/*==================================================
+-------------------- header ------------------------
+====================================================*/
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+.header__nav {
+    display: flex;
+    flex-direction: row;
+}
+.header-nav__button_black {
+    background-color: black;
+    color: white;
+}
+.header-nav__item {
+    margin: 0 10px;
+    padding: 15px;
+    font-weight: 500;
+}
+
+/*==================================================
+-------------------- content ------------------------
+====================================================*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content__top {
+    margin: 0 1vw;
+}
+.content-top__header {
+    font-size: 5vw;
+}
+.content-top__button_black {
+    background-color: black;
+    color: white;
+}
+.content-top__picture {
+    width: max-content;
+    max-width: 40%;
+}
+
+.content__black-line_container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+.content__black-line {
+    background-color: black;
+    padding: 70px 0;
+    margin-bottom: 80px;
+}
+.content__black-line_item_text {
+    color: white;
+    width: 300px;
+}
+@media screen and (max-width: 800px) {
+    .content__black-line_container {
+        width: 100%;
+        flex-direction: column;
+        align-content: center;
+    }
+}
+
+.content__block {
+    width: 80%;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content__block_img {
+    max-height: 500px;
+    max-width: 400px;
+}
+.content__block_header {
+    font-size: 3vw;
+}
+
+.content__abilities_container {
+    margin-bottom: 200px;
+}
+.content__abilities_header {
+    width: 100%;
+    text-align: center;
+    margin: 200px 0 80px;
+}
+.content__abilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.content__abilities_item {
+    background-color: black;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 5px;
+    width: 30%;
+}
+.content__abilities_item_text {
+    color: white;
+}
+
+/*==================================================
+-------------------- footer ------------------------
+====================================================*/
+
+footer {
+    padding: 25px 0;
+    background-color: black;
+}
+.footer__logo {
+    text-align: center;
+    margin: 0;
+    color: white;
+}

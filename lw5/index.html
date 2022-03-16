@@ -1,61 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-16">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>LabWork 5</title>
 </head>
 <body>
     <header>
-        <h3 class="header-logo">Don't do it</h3>
-        <section class="header-nav">
-            <a href="">
-                <p>Что будет на курсе?</p>
-            </a>
-            <a href="">
-                <p>Вопросы</p>
-            </a>
-            <a href="">
-                <p>Автор</p>
-            </a>
-            <button class="button-black">Записаться на курс</button>
+        <h1>Don't <span class="text_pink">do</span> it</h1>
+        <section class="header__nav">
+            <a href="" class="header-nav__item">Что будет на курсе?</a>
+            <a href="" class="header-nav__item">Вопросы</a>
+            <a href="" class="header-nav__item">Автор</a>
+            <button class="header-nav__button_black">Записаться на курс</button>
         </section>
     </header>
 
-    <main class="container">
-        
-        <div class="main-top-block">
+    <main>
+
+        <div class="content__top content">
             <section>
-                <h1>Не делай этого</h1>
+                <h2 class="content-top__header">Не <span class="text_pink">делай</span> этого</h2>
                 <p>Онайлн-курс для творческих людей, о том, как управлять своим временем</p>
-                <button class="button-black">Записаться на курс</button>
+                <button class="content-top__button_black">Записаться на курс</button>
             </section>
-            <img src="images/ChillMan.svg" alt="" />
+            <img class="content-top__picture" src="images/ChillMan.svg" alt="" />
         </div>
         
-        <div class="block">
-            <div class="block-item">
-                <img src="images/Clock.svg" alt="" class="block-item-image" />
-                <p class="block-item-text">Для тех, у кого слишком много идей и слишком мало времени</p>
-            </div>
-            <div class="block-item">
-                <img src="images/Notebook.svg" alt="" class="block-item-image" />
-                <p class="block-item-text">Метод "списка не дел", который позволит успевать и реализовывать</p>
-            </div>
-            <div class="block-item">
-                <img src="images/Target.svg" alt="" class="block-item-image" />
-                <p class="block-item-text">Курс научит творческих людей сосредоточит</p>
+        <div class="content__black-line">
+            <div class="content__black-line_container">
+                <div>
+                    <img src="images/Clock.svg" alt="" />
+                    <p class="content__black-line_item_text">
+                        Для тех, у кого слишком много идей и слишком мало времени
+                    </p>
+                </div>
+                <div>
+                    <img src="images/Notebook.svg" alt="" />
+                    <p class="content__black-line_item_text">
+                        Метод "списка не дел", который позволит успевать и реализовывать
+                    </p>
+                </div>
+                <div>
+                    <img src="images/Target.svg" alt="" />
+                    <p class="content__black-line_item_text">
+                        Курс научит творческих людей сосредоточит
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="block"></div>
+        <div class="content__block">
+            <img src="images/Finances.svg" alt="" class="content__block_img" />
+            <section>
+                <h2 class="content__block_header">Ты не успеешь</h2>
+                <p>Всех творческих людей объединяет одна проблема - отсутствие времени на реализацию
+                идей.  суткам часы, рассмотрим в нашем курсе.</p>
+            </section>
+        </div>
+
+        <div class="content__block">
+            <section>
+                <h2 class="content__block_header">Опять дедлайн</h2>
+                <p>В мире, где столько всего интересного, когда же успевать жить?</p>
+            </section>
+            <img src="images/MindBlowing.svg" alt="" class="content__block_img" />
+        </div>
+
+        <div class="content__abilities_container">
+            <h1 class="content__abilities_header">На курсе ты <span class="text_pink">сможешь</span></h1>
+            <div class="content__abilities">
+                <div class="content">
+                    <div class="content__abilities_item">
+                        <img src="images/Finger1.svg" alt="">
+                        <p class="content__abilities_item_text">Понять, что нужно делать, а что делать не стоит.</p>
+                    </div>
+                    <div class="content__abilities_item">
+                        <img src="images/Finger2.svg" alt="">
+                        <p class="content__abilities_item_text">Перестать себя искусственно ограничивать.</p>
+                    </div>
+                    <div class="content__abilities_item">
+                        <img src="images/Finger3.svg" alt="">
+                        <p class="content__abilities_item_text">Определить сильные стороны и начать использовать слабые.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content__abilities">
+                <div class="content">
+                    <div class="content__abilities_item">
+                        <img src="images/Finger1.svg" alt="">
+                        <p class="content__abilities_item_text">Понять, что нужно делать, а что делать не стоит.</p>
+                    </div>
+                    <div class="content__abilities_item">
+                        <img src="images/Finger2.svg" alt="">
+                        <p class="content__abilities_item_text">Перестать себя искусственно ограничивать.</p>
+                    </div>
+                    <div class="content__abilities_item">
+                        <img src="images/Finger3.svg" alt="">
+                        <p class="content__abilities_item_text">Определить сильные стороны и начать использовать слабые.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
     <footer>
-        <h3 class="footer-logo">Don't do it</h3>
+        <h2 class="footer__logo">Don't <span class="text_pink">do</span> it</h2>
     </footer>
 </body>
 </html>
