@@ -1,42 +1,57 @@
-@font-face {
+@font-face
+{
     font-family: headerFont;
     src: url("../fonts/Montserrat-Light.ttf");
 }
-@font-face {
+
+@font-face
+{
     font-family: mainFont;
     src: url("../fonts/RobotoCondensed-Light.ttf");
 }
 
-* {
+body
+{
+    margin: 0;
+}
+
+p 
+{
+    max-width: 500px;
+    font-size:larger;
+}
+
+a 
+{
+    text-decoration: none;
+    color: white;
+}
+
+.text 
+{
     color: black;
     text-decoration: none;
     font-family: mainFont; 
     line-height: 1;
 }
-h1, h2, h3, a, button {
+
+.title 
+{
     font-family: headerFont;
 }
-body {
-    margin: 0;
-}
-button {
-    border: 0;
-    border-radius: 4px;
-    padding: 15px;
-}
-p {
-    max-width: 500px;
-    font-size:larger;
-}
-.text_pink {
+
+.text_pink
+{
     color: rgb(238, 88, 182);
 }
+
 
 /*==================================================
 -------------------- header ------------------------
 ====================================================*/
 
-header {
+.header
+{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,95 +60,145 @@ header {
     margin: 0 auto;
     margin-bottom: 80px;
 }
-.header__nav {
+
+.header__nav
+{
     display: flex;
     flex-direction: row;
 }
-.header-nav__button_black {
-    background-color: black;
-    color: white;
-}
-.header-nav__item {
+
+.header__nav_ref
+{
     margin: 0 10px;
     padding: 15px;
     font-weight: 500;
+    color: black;   
 }
+
+.header__nav_ref_black 
+{
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+}
+
 
 /*==================================================
 -------------------- content ------------------------
 ====================================================*/
 
-.container {
+.container
+{
     width: 80%;
     margin: 0 auto;
 }
-.content {
+
+.content
+{
     display: flex;
     justify-content: space-around;
 }
 
-.content__top {
+.b-top
+{
     margin: 0 1vw;
 }
-.content-top__header {
+
+.b-top__header
+{
     font-size: 5vw;
 }
-.content-top__button_black {
+
+.b-top__button
+{
+    padding: 15px;
     background-color: black;
     color: white;
+    border-radius: 4px;
 }
-.content-top__picture {
+
+.b-top__picture
+{
     width: max-content;
     max-width: 40%;
 }
 
-.content__black-line_container {
+.b-black-line_container
+{
     display: flex;
     justify-content: space-around;
     width: 80%;
     margin: 0 auto;
 }
-.content__black-line {
+
+.b-black-line
+{
     background-color: black;
     padding: 70px 0;
     margin-bottom: 80px;
 }
-.content__black-line_item_text {
+
+.b-black-line_item_text
+{
     color: white;
     width: 300px;
 }
-@media screen and (max-width: 800px) {
-    .content__black-line_container {
+
+@media screen and (max-width: 800px)
+{
+    .b-black-line_container
+    {
         width: 100%;
         flex-direction: column;
         align-content: center;
     }
+
 }
 
-.content__block {
+.b-block
+{
     width: 80%;
     margin: 0 auto 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.content__block_img {
+
+.b-block__img
+{
     max-height: 500px;
     max-width: 400px;
 }
-.content__block_header {
+
+.b-block__header
+{
     font-size: 3vw;
 }
 
-.content__abilities_container {
+@media screen and (max-width: 800px)
+{
+    .b-block
+    {
+        flex-direction: column;
+    }
+
+}
+
+
+.b-abilities__container
+{
     margin-bottom: 200px;
 }
-.content__abilities_header {
+
+.b-abilities__container
+{
     width: 100%;
     text-align: center;
     margin: 200px 0 80px;
 }
-.content__abilities {
+
+.b-abilities
+{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr;
@@ -141,31 +206,42 @@ header {
     width: 80%;
     margin: 0 auto;
 }
-.content__abilities_item {
+
+.b-abilities__item
+{
     background-color: black;
     border-radius: 8px;
     padding: 20px;
     margin: 5px;
 }
-.content__abilities_item_text {
+
+.b-abilities__item_text
+{
     color: white;
 }
+
 @media screen and (max-width: 800px)
 {
-    .content__abilities {
+    .b-abilities
+{
         grid-template-columns: 1fr;
     }
+
 }
+
 
 /*==================================================
 -------------------- footer ------------------------
 ====================================================*/
 
-footer {
+footer
+{
     padding: 25px 0;
     background-color: black;
 }
-.footer__logo {
+
+.footer__logo
+{
     text-align: center;
     margin: 0;
     color: white;
