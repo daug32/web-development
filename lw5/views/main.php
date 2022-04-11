@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
             <a href="" class="header__nav-ref title">Что будет на курсе?</a>
             <a href="" class="header__nav-ref title">Вопросы</a>
             <a href="" class="header__nav-ref title">Автор</a>
-            <a href="" class="header__nav-ref course-button title">Записаться на курс</a>
+            <a href="#enroll" class="header__nav-ref course-button title">Записаться на курс</a>
         </section>
     </header>
 
@@ -27,7 +26,7 @@
                 <p class="top__text text">
                     Онайлн-курс для творческих людей, о том, как управлять своим временем
                 </p>
-                <a href="" class="course-button title">
+                <a href="#enroll" class="course-button title">
                     Записаться на курс
                 </a>
             </section>
@@ -123,6 +122,12 @@
                 
             </div>
         </div>
+
+        <?php
+            require $_SERVER["DOCUMENT_ROOT"]."/controllers/enroll.php";
+            Enroll::IncludeForm();
+        ?>
+        
     </main>
 
     <footer class="footer">

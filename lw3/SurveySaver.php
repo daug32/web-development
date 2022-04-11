@@ -5,7 +5,6 @@ class SurveySaver extends Survey
 {    
     /**
      * Parses data from the URL and saves data 
-     * 
      * @return string
      */
     public static function Exec()
@@ -20,16 +19,14 @@ class SurveySaver extends Survey
 
     /**
      * Creates new or updates existed record for the user
-     * 
      * @var string $path
-     * 
      * @return string
      */
     protected static function Record($path) //record - запись
     {
         $data = array();
         $lines = array();
-        if(file_exists($path))
+        if(file_exists($path)) 
             $lines = file($path);
             
         $file = fopen($path, 'w');
