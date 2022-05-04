@@ -4,8 +4,16 @@ error_reporting( 0 );
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-if ( $method == "GET" ) RouteGet();
-else if ( $method == "POST" ) RoutePost();
+switch( $method )
+{
+    case "GET":
+        RouteGet();
+        break;
+
+    case "POST":
+        RoutePost();
+        break;
+}
 
 function RouteGet()
 {
@@ -38,22 +46,21 @@ function RoutePost()
     {
         case "/enroll":
             include $rootPath."/controllers/enroll.php"; 
-            Enroll::Save();
+            echo Enroll::Save();
             header("Location: ". $_SERVER['HTTP_REFERER']);
             break;
+        }
     }
-
-}
-
+    
 function GetUri()
 {
-    $result = explode( "?", $_SERVER["REQUEST_URI"] )[0];
+    $uri = explode( "?", $_SERVER["REQUEST_URI"] )[0];
+    $length = strlen( $uri );
 
-    $length = strlen( $result );
-    if ( $length > 1 && $result[$length - 1] == "/") 
-        $result = substr( $result, 0, $length - 1 );
+    if ( $length > 1 && $uri[$length - 1] == "/") 
+        $uri = substr( $uri, 0, $length - 1 );
 
-    return $result;
+    return $uri;
 }
 
 ?>

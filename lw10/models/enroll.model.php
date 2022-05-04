@@ -23,6 +23,7 @@ class EnrollModel
         
         $file = fopen( $path, 'w' );
         if ( !$file ) return false; 
+        
         fwrite( $file, $lines );
         fclose( $file );
 

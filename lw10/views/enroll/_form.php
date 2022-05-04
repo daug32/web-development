@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="/styles/enroll.css">
-
 <div id="enroll" class="hide">
-    <div class="enroll__background">
+    <div class="enroll__container">
+        <img src="images/Exit.svg" alt="" class="enroll__exit">
         <img src="images/Welcome.svg" alt="" class="enroll__img">
         <h2 class="enroll__title title">Записаться на курс</h2>
 
@@ -20,7 +19,10 @@
                 <label for="subscribe" class="enroll__label text">Согласeн получать информационные материалы о старте курса</label>
             </div>
 
-            <button class="course-button title">Записаться на курс</button>
+            <button class="enroll__subscribe-button title">Записаться на курс</button>
         </form>
     </div>
 </div>
+
+<link rel="stylesheet" href="/styles/enroll.css">
+<script src="/scripts/EnrollAnimator.js"> </script>

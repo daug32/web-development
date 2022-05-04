@@ -8,11 +8,6 @@
 </head>
 <body>
 
-    <?php
-        require $_SERVER["DOCUMENT_ROOT"]."/controllers/enroll.php";
-        Enroll::IncludeForm();
-    ?>
-
     <header class="header">
         <h1 class="title">Don't <span class="marked-text">do</span> it</h1>
         <section class="header__ref-container">
@@ -26,15 +21,11 @@
     <main>
         <div class="top">
             <section class="top__section">
-                <h2 class="top__header title">
-                    Не <span class="title marked-text">делай</span> это
-                </h2>
+                <h2 class="top__header title">Не <span class="title marked-text">делай</span> это</h2>
                 <p class="top__text text">
                     Онайлн-курс для творческих людей, о том, как управлять своим временем
                 </p>
-                <a href="" class="course-button title">
-                    Записаться на курс
-                </a>
+                <buttons class="course-button title">Записаться на курс</button>
             </section>
             <img class="top__img" src="images/ChillMan.svg" alt="" />
         </div>
@@ -128,15 +119,16 @@
                 
             </div>
         </div>
-        
     </main>
 
     <footer class="footer">
         <p class="footer__logo title">Don't <span class="marked-text title">do</span> it</px>
     </footer>
-
-    <script type="module" src="/scripts/EnrollAnimator.js"> </script>
-    <script type="module" src="/scripts/main.js" ></script>
     
+    <?php
+        require $_SERVER["DOCUMENT_ROOT"]."/controllers/enroll.php";
+        Enroll::IncludeForm();
+    ?>
+
 </body>
 </html>
