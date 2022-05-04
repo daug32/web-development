@@ -1,0 +1,376 @@
+@font-face
+{
+    font-family: headerFont;
+    src: url("../fonts/Montserrat-Light.ttf");
+}
+
+@font-face
+{
+    font-family: mainFont;
+    src: url("../fonts/RobotoCondensed-Light.ttf");
+}
+
+html 
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
+    margin: 0;
+}
+
+.text 
+{
+    color: black;
+    text-decoration: none;
+    font-family: mainFont; 
+    line-height: 1.2;
+}
+
+.title 
+{
+    font-family: headerFont;
+}
+
+.marked-text
+{
+    color: rgb(238, 88, 182);
+}
+
+/*==================================================
+-------------------- header ------------------------
+====================================================*/
+
+.header
+{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__ref-container
+{
+    display: grid;
+    column-gap: 20px;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, auto);
+}
+
+.header__nav-ref
+{
+    padding: 15px;
+    color: black;   
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.course-button  
+{
+    border: none;
+    padding: 15px;
+    color: white; 
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: black;
+}
+
+@media screen and (max-width: 450px)
+{
+    .header
+    {
+        margin: 20px 0;
+    }
+
+    .header__nav-ref
+    {
+        text-align: start;
+    }
+
+    .header__ref-container
+    {
+        margin-left: 10%;
+        width: fit-content;
+        align-self: flex-start;
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
+@media screen and (max-width: 800px) 
+{
+    .header
+    {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .header__ref-container
+    {
+        margin: 0 3%;
+    }
+}    
+
+/*==================================================
+-------------------- top -------------------------
+====================================================*/
+
+.top 
+{
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.top__header
+{
+    font-size: 5vmin;
+    max-width: 500px
+}
+
+.top__text
+{
+    margin-bottom: 65px;
+}
+
+.top__img
+{
+    width: 40%;
+} 
+
+@media screen and (max-width: 800px)
+{
+    .top 
+    {
+        margin-bottom: 70px;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .top__header
+    {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .top__img
+    {
+        width: 100%;
+    }
+
+    .top__text
+    {
+        margin-bottom: 40px;
+    }
+}
+
+/*==================================================
+---------------- marked-line ---------------------
+====================================================*/
+
+.marked-line
+{
+    padding: 50px 20%;
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+}
+
+.marked-line__item 
+{
+    width: 30%;
+    height: 150px;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.marked-line__item-img 
+{
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.marked-line__item-text
+{
+    margin: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px)
+{
+    .marked-line
+    {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .marked-line__item
+    {
+        width: 100%;
+    }
+}
+
+/*==================================================
+------------------- block ------------------------
+====================================================*/
+
+.block
+{
+    width: 70%;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.block__img
+{
+    max-height: 500px;
+    max-width: 400px;
+}
+
+.block__header
+{
+    font-size: 48px;
+}
+
+.block__text 
+{
+    max-width: 400px;
+}
+
+@media screen and (max-width: 800px)
+{
+    .block
+    {
+        flex-direction: column;
+    }
+
+    .block__img
+    {
+        width: 100vw;
+    }
+
+    .block__header
+    {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .block section
+    {
+        margin: 0 auto;
+    }
+}
+
+/*==================================================
+------------------- abilities --------------------
+====================================================*/
+
+.abilities
+{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.abilities__container
+{
+    gap: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.abilities__item
+{
+    padding: 30px;
+    border-radius: 8px;
+    background-color: black;
+}
+
+.abilities__item-text
+{
+    color: white;
+}
+
+@media screen and (max-width: 800px)
+{
+    .abilities__container
+    {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+    .abilities__container
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*==================================================
+-------------------- footer ------------------------
+====================================================*/
+
+.footer
+{
+    padding: 25px 0;
+    margin-top: 200px;
+    background-color: black;
+}
+
+.footer__logo
+{
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+@media screen and (max-width: 800px)
+{
+    .footer
+    {
+        margin-top: 50px;
+    }
+}
+
+/*==================================================
+-------------------- enroll ------------------------
+====================================================*/
+
+.get-web-interface
+{
+    margin: 30px;
+}
+
+.get-web-interface__input
+{
+    width: 300px;
+    padding: 15px;
+    margin: 10px 50px 10px 0;
+    border-radius: 4px;    
+    border: 1.4px solid #C0C0C0;
+}
+
+.get-web-interface__subscribe
+{
+    border: none;
+    width: 300px;
+    padding: 15px;
+    color: white; 
+    border-radius: 4px;
+    background-color: black;
+}
