@@ -18,7 +18,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: min(150px, 20%);
     width: 100%;    
     height: 100%;
     display: flex;
@@ -30,9 +29,9 @@
 
 .enroll__container
 {
-    width: min(600px, 100%);
+    width: 100%;
+    height: 100%;
     padding-bottom: 20px;
-    border-radius: 8px;
     background-color: white; 
     display: flex;
     align-items: center;
@@ -118,13 +117,13 @@
     background-color: black;
 }
 
-@media screen and (min-width: 1025px)
-{
-    #enroll 
+@media screen and (min-width: 1024px)
+{    
+    .enroll__container
     {
-    }
-    
-    .enroll__background
-    {
+        margin-top: min(150px, 20%);
+        width: 600px;
+        height: unset;
+        border-radius: 8px;
     }
 }
