@@ -4,7 +4,7 @@ class EnrollAnimator
     {
         this.isShown = false;
         
-        this.enrollBackground = document.getElementById( "enroll" );
+        this.aenrollBackground = document.getElementById( "enroll" );
         this.enroll = document.getElementsByClassName( "enroll__container" )[0];
         this.Hide();
 

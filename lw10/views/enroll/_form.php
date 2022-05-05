@@ -25,4 +25,4 @@
 </div>
 
 <link rel="stylesheet" href="/styles/enroll.css">
-<script src="/scripts/EnrollAnimator.js"> </script>
+<script defer src="/scripts/EnrollAnimator.js"> </script>

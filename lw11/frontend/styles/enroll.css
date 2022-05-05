@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.2s;
 }
@@ -42,6 +43,7 @@
     align-items: center;
     flex-direction: column;
     transition: all 0.1s 0.2s;
+    overflow: auto;
 }
 
 .enroll__exit
@@ -53,7 +55,8 @@
 
 .enroll__img
 {
-    height: 250px;
+    height: min-content;
+    max-height: 250px;
 }
 
 .enroll__form
@@ -64,18 +67,17 @@
 
 .enroll__title 
 {
-    margin: 0 0 20px 0 
+    margin: 0; 
 }
 
 .enroll__input, .enroll__select
 {
     padding: 15px;
     margin: 10px 0;
+    appearance: none;
     border-radius: 4px;
     box-sizing: border-box;
     border: 1.4px solid #C0C0C0;
-    appearance: none;
-   
 }
 
 .enroll__input::placeholder
@@ -85,7 +87,7 @@
 
 .enroll__select
 { 
-    background-image: url("../images/Arrow.png");
+    background-image: url("/images/Arrow.png");
     background-size:
       15px 7px,
       5px 5px,
@@ -122,11 +124,16 @@
     background-color: black;
 }
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: 800px)
 {    
+    .enroll__title
+    {
+        margin: 0 0 20px 0;
+    }
+
     .enroll__container
     {
-        margin-top: min(150px, 20%);
+        overflow: hidden;
         width: 600px;
         height: unset;
         border-radius: 8px;
