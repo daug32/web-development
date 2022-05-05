@@ -2,6 +2,7 @@ export class EnrollProcessor
 {
     constructor()
     {
+        this.url = "localhost:8080/";
         this.form = document.forms.enroll;
         this.form.addEventListener( "submit", ( event ) => this.SaveData( event ) );
     }
@@ -13,7 +14,6 @@ export class EnrollProcessor
         isValid &= TestField( this.form.email, "^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" );
         if( !isValid ) 
         {
-            event.preventDefault();
             return false;
         }
 
@@ -36,6 +36,18 @@ export class EnrollProcessor
 
     SaveData( event )
     {
-        if ( !this.ValidateData( event ) ) return;
+        event.preventDefault();
+
+        if ( !this.ValidateData( event ) ) 
+        {
+            event.preventDefault();
+            return;
+        }
+
+        let data = [this.form.email, this.form.name, this.form.profession];
+
+        let request = new XMLHttpRequest();
+        request.open( "POST", this.url + "enroll" );
+        request.send( data );
     }
 }

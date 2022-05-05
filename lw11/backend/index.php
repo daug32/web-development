@@ -1,5 +1,6 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
 error_reporting( 0 );
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -7,7 +8,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 switch( $method )
 {
     case "GET":
-        RouteGet();
+        // RouteGet();
         break;
 
     case "POST":
@@ -47,7 +48,7 @@ function RoutePost()
         case "/enroll":
             include $rootPath."/controllers/enroll.php"; 
             echo Enroll::Save();
-            header("Location: ". $_SERVER['HTTP_REFERER']);
+            // header("Location: ". $_SERVER['HTTP_REFERER']);
             break;
         }
     }
