@@ -17,6 +17,14 @@
         enrollController.OnDataRecieve = ( users ) => 
         {
             anchor.innerHTML = "";
+            if ( users.length < 1 ) 
+            {
+                anchor.innerHTML = `
+                    <p class="title get-web-interface__error">
+                        Сохраненных пользователей нет.
+                    </p>`;
+                return;
+            }
             users.forEach( user => anchor.innerHTML += Template( user ) );
         }
 

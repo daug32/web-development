@@ -346,31 +346,3 @@ body
         margin-top: 50px;
     }
 }
-
-/*==================================================
--------------------- enroll ------------------------
-====================================================*/
-
-.get-web-interface
-{
-    margin: 30px;
-}
-
-.get-web-interface__input
-{
-    width: 300px;
-    padding: 15px;
-    margin: 10px 50px 10px 0;
-    border-radius: 4px;    
-    border: 1.4px solid #C0C0C0;
-}
-
-.get-web-interface__subscribe
-{
-    border: none;
-    width: 300px;
-    padding: 15px;
-    color: white; 
-    border-radius: 4px;
-    background-color: black;
-}
