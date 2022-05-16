@@ -1,41 +1,21 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
+header( "Access-Control-Allow-Origin: *" );
 error_reporting( 0 );
+
+require_once $_SERVER["DOCUMENT_ROOT"]."/Controllers/BaseController.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-switch( $method )
+switch ( $method )
 {
     case "GET":
-        // RouteGet();
+        RouteGet();
         break;
 
     case "POST":
         RoutePost();
         break;
-}
-
-function RouteGet()
-{
-    $rootPath = $_SERVER["DOCUMENT_ROOT"];
-    $uri = GetUri();
-
-    switch ( $uri ) 
-    {
-        case "/":
-            include $rootPath."../frontend/index.html";
-            break;
-
-        case "/enroll":
-            include $rootPath."/controllers/enroll.php"; 
-            Enroll::RouteGet();
-            break;
-
-        default: 
-            include $rootPath."/views/404.php";
-            break;
-    }
 }
 
 function RoutePost()
@@ -46,12 +26,33 @@ function RoutePost()
     switch ( $uri )
     {
         case "/enroll":
-            include $rootPath."/controllers/enroll.php"; 
-            echo Enroll::Save();
-            // header("Location: ". $_SERVER['HTTP_REFERER']);
+            include $rootPath."/Controllers/EnrollController.php"; 
+            echo EnrollController::Save();
             break;
-        }
+        
+        default: 
+            BaseController::Error( 404 );
+            break;
     }
+}
+
+function RouteGet()
+{
+    $rootPath = $_SERVER["DOCUMENT_ROOT"];
+    $uri = GetUri();
+
+    switch ( $uri ) 
+    {
+        case "/get":
+            include $rootPath."/Controllers/EnrollController.php"; 
+            echo EnrollController::Get();
+            break;
+
+        default: 
+            BaseController::Error( 404 );
+            break;
+    }
+}
     
 function GetUri()
 {

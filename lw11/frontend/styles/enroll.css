@@ -8,6 +8,15 @@
     opacity: 0;
 }
 
+.enroll__error
+{
+    width: 100%;
+    height: min-content;
+    color: black;
+    margin: auto 0;
+    text-align: center;
+}
+
 .enroll__shrink
 {
     transform: scale(0.5, 0.5);
@@ -122,6 +131,20 @@
     border-radius: 4px;
     text-decoration: none;
     background-color: black;
+}
+
+.get-web-interface__item
+{
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: black;
+}
+
+.get-web-interface__text 
+{
+    color: white;
 }
 
 @media screen and (min-width: 800px)

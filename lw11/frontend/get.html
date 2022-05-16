@@ -1,0 +1,45 @@
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/enroll.css" />
+    <meta charset="UTF-8">
+    <title>Something</title>
+</head>
+<body>
+
+    <script defer type="module">
+        import { EnrollController } from "/scripts/EnrollController.js";
+
+        let anchor = document.getElementsByClassName( "enroll__recieve-anchor" )[0];
+        
+        let enrollController = new EnrollController();
+        enrollController.OnDataRecieve = ( users ) => 
+        {
+            anchor.innerHTML = "";
+            users.forEach( user => anchor.innerHTML += Template( user ) );
+        }
+
+        function Template( user )
+        {
+            return `
+                <div class="get-web-interface__item">
+                    <img src="/images/User.svg">
+                    <p class="get-web-interface__text title">Имя: ${user.name}</p>
+                    <p class="get-web-interface__text title">Почта: ${user.email}</p>
+                    <p class="get-web-interface__text title">Профессия: ${user.profession}</p>
+                    <p class="get-web-interface__text title">Согласие на рассылку: ${user.isSubscribed}</p>
+                </div>
+            `;
+        }
+    </script>
+
+    <form id="enroll-get" class="get-web-interface">
+        <input type="email" name="email" class="get-web-interface__input" placeholder="Email">
+        <button class="get-web-interface__subscribe text">Получить данные</button>
+    </form>
+
+    <div class="enroll__recieve-anchor"></div>
+
+</body>
+</html>
