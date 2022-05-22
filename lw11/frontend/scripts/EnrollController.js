@@ -28,7 +28,7 @@ export class EnrollController
     GetData()
     {
         let url = this.url + `get`;
-        if ( this.getForm.email.value ) 
+        if ( this.getForm.email.value != null ) 
         {
             url += `/?email=${this.getForm.email.value}`;
         }
@@ -55,19 +55,25 @@ export class EnrollController
             this.form.subscribe.checked 
         );
 
-        let request = new XMLHttpRequest();
+        let url = this.url + "enroll";
+        let settings = 
+        { 
+            body: JSON.stringify( dto ),
+            method: "post"
+        };
 
-        request.open( "POST", this.url + "enroll", false );
-        request.send( JSON.stringify( dto ) );
-        
-        if ( request.status > 299 ) 
-        {
-            let response = JSON.parse( request.response );
-            this.ShowError( response.message );
-            return;
-        }
+        fetch( url, settings )
+            .then( response => response.json() ) 
+            .then( data => 
+            {
+                if ( data.status < 200 || data.status > 299 )
+                {
+                    this.ShowError( data.message );
+                    return;
+                }
 
-        this.OnSuccessResponse();
+                this.OnSuccessResponse();
+            } );
     }
 
     ValidateData()
