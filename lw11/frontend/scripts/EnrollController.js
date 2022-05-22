@@ -27,33 +27,21 @@ export class EnrollController
 
     GetData()
     {
-        // let requestSettings = {
-        //     body: ""
-        // };
+        let url = this.url + `get`;
+        if ( this.getForm.email.value ) 
+        {
+            url += `/?email=${this.getForm.email.value}`;
+        }
         
-        // let email = this.getForm.email;
-        // if ( email != null && email.length > 0 )
-        // {
-        //     requestSettings.body = JSON.stringify( email );
-        // }
-
-        // fetch( this.url + "get", requestSettings )
-        //     .then( response => response.json() )
-        //     .then( data => 
-        //         {
-        //             if ( data.status != 200 ) return;
-        //             let users = JSON.parse( data.message );
-        //             this.OnDataRecieve( users );
-        //         }); 
-
-        fetch( this.url + "get" )
+        fetch( url )
             .then( response => response.json() )
             .then( data => 
                 {
-                    if ( data.status != 200 ) return;
+                    let status = data.status;
                     let users = JSON.parse( data.message );
-                    this.OnDataRecieve( users );
-                }); 
+                    this.OnDataRecieve( status, users );
+                } )
+            .catch( err => this.OnDataRecieve( 400, [] ) );
     }
 
     SendData()

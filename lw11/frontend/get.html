@@ -14,10 +14,11 @@
         let anchor = document.getElementsByClassName( "enroll__recieve-anchor" )[0];
         
         let enrollController = new EnrollController();
-        enrollController.OnDataRecieve = ( users ) => 
+        enrollController.OnDataRecieve = ( statusCode, users ) => 
         {
             anchor.innerHTML = "";
-            if ( users.length < 1 ) 
+            console.log( statusCode );
+            if ( users.length < 1 || statusCode != 200 ) 
             {
                 anchor.innerHTML = `
                     <p class="title get-web-interface__error">

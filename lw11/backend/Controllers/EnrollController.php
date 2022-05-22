@@ -12,7 +12,7 @@ class EnrollController extends BaseController
     {
         $email = $_GET["email"];
 
-        if ( $email == null || $email = "" )
+        if ( $email == null || $email == "" )
         {
             self::GetAllUsers();
             return;
@@ -30,15 +30,16 @@ class EnrollController extends BaseController
 
     public static function GetUser( $email )
     {
-        $userExist = EnrollService::Exists( $email );
+        $path = EnrollService::GetPath( $email );
+        $userExist = EnrollService::Exists( $path );
         if ( !$userExist )  
         {
-            parent::Error( 404, "Email wasn't found" );
+            parent::Error( 400, "Email wasn't found" );
             return;
         }
 
         $enrollModel = EnrollService::Load( $email );
-        $message = json_encode( $enrollModel );
+        $message = json_encode( [ $enrollModel ] );
         parent::Successful( $message );
     }
 

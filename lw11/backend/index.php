@@ -1,6 +1,6 @@
 <?php
 
-header( "Access-Control-Allow-Origin: *" );
+header( "Access-Control-Allow-Origin: http://localhost:443" );
 error_reporting( 0 );
 
 require_once $_SERVER["DOCUMENT_ROOT"]."/Controllers/BaseController.php";

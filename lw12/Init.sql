@@ -1,0 +1,30 @@
+DROP DATABASE University;
+CREATE DATABASE University;
+USE University;
+
+CREATE TABLE Faculty (
+	Id INT NOT NULL AUTO_INCREMENT,
+    `Name` NVARCHAR(30),
+
+    PRIMARY KEY(Id)
+);
+
+CREATE TABLE `Group` (
+	Id INT NOT NULL AUTO_INCREMENT,
+    FacultyId INT,
+    `Name` NVARCHAR(30),
+
+    PRIMARY KEY(Id),
+    FOREIGN KEY(FacultyId) REFERENCES Faculty(Id)
+);
+
+CREATE TABLE Student(
+	Id INT NOT NULL AUTO_INCREMENT,
+    GroupId INT,
+	FirstName NVARCHAR(30),
+	LastName NVARCHAR(30),
+    Age INT,
+
+    PRIMARY KEY(Id),
+    FOREIGN KEY(GroupId) REFERENCES `Group`(Id)
+);
